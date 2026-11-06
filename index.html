@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manohar | Student Attendance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">M</div><div><strong>Manohar</strong><small>ATTENDANCE PORTAL</small></div></div>
+    <p class="nav-label">WORKSPACE</p>
+    <a class="nav-link active" href="#dashboard">▦ <span>Dashboard</span></a>
+    <a class="nav-link" href="#students">♙ <span>Students</span></a>
+    <a class="nav-link" href="#attendance">✓ <span>Mark Attendance</span></a>
+    <div class="sidebar-bottom"><div class="avatar">MA</div><div><strong>Administrator</strong><small>School Admin</small></div></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><span class="eyebrow">OVERVIEW</span><h1>Student Attendance</h1></div>
+      <div class="top-actions"><span class="today" id="todayLabel"></span><button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☾</button></div>
+    </header>
+
+    <section id="dashboard" class="section">
+      <div class="welcome"><div><span class="eyebrow light">YOUR CLASSROOM, AT A GLANCE</span><h2>Good day, Administrator 👋</h2><p>Keep track of students and daily attendance in one place.</p></div><div class="welcome-icon">📚</div></div>
+      <div class="stats">
+        <article class="stat-card"><div class="stat-icon purple">♙</div><span>Total Students</span><strong id="totalStudents">—</strong><small>Registered students</small></article>
+        <article class="stat-card"><div class="stat-icon green">✓</div><span>Present Today</span><strong id="presentToday">—</strong><small>Marked present</small></article>
+        <article class="stat-card"><div class="stat-icon red">✕</div><span>Absent Today</span><strong id="absentToday">—</strong><small>Marked absent</small></article>
+        <article class="stat-card"><div class="stat-icon blue">▤</div><span>Marked Today</span><strong id="markedToday">—</strong><small>Attendance entries</small></article>
+      </div>
+    </section>
+
+    <section id="students" class="section panel">
+      <div class="section-heading"><div><span class="eyebrow">STUDENT DIRECTORY</span><h2>Students</h2><p>Manage your classroom list.</p></div><button class="primary-btn" id="addStudentBtn">＋ Add student</button></div>
+      <div class="toolbar"><input id="studentSearch" type="search" placeholder="Search by name or roll number…"><span id="studentCount" class="muted"></span></div>
+      <div class="table-wrap"><table><thead><tr><th>ROLL NUMBER</th><th>STUDENT NAME</th><th>CLASS</th><th>EMAIL</th></tr></thead><tbody id="studentsBody"><tr><td colspan="4">Loading students…</td></tr></tbody></table></div>
+    </section>
+
+    <section id="attendance" class="section panel">
+      <div class="section-heading"><div><span class="eyebrow">DAILY REGISTER</span><h2>Mark attendance</h2><p>Select a date and update each student's status.</p></div><label class="date-label">ATTENDANCE DATE<input type="date" id="attendanceDate"></label></div>
+      <div class="toolbar"><span class="muted">Choose a status for each student, then save.</span><button class="primary-btn" id="saveAllBtn">Save attendance</button></div>
+      <div class="table-wrap"><table><thead><tr><th>ROLL NUMBER</th><th>STUDENT NAME</th><th>CLASS</th><th>STATUS</th></tr></thead><tbody id="attendanceBody"><tr><td colspan="4">Loading attendance…</td></tr></tbody></table></div>
+    </section>
+    <footer>© 2026 Manohar Student Attendance Management System <span>Built for simpler classroom management</span></footer>
+  </main>
+
+  <dialog id="studentDialog">
+    <form id="studentForm" method="dialog">
+      <div class="dialog-heading"><div><span class="eyebrow">NEW RECORD</span><h2>Add student</h2></div><button type="button" class="close-btn" id="closeDialog">×</button></div>
+      <label>Roll number<input name="roll_no" required placeholder="e.g. STU004"></label>
+      <label>Student name<input name="full_name" required placeholder="Full name"></label>
+      <label>Class / Section<input name="class_name" required placeholder="e.g. BCA - II Year"></label>
+      <label>Email (optional)<input name="email" type="email" placeholder="student@example.com"></label>
+      <button class="primary-btn full-btn" type="submit">Add student</button>
+    </form>
+  </dialog>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
